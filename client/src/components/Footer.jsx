@@ -42,7 +42,7 @@ export default function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div>
+        {/* <div>
           <h3 className="font-semibold text-pink-700 mb-3">Join Our Newsletter</h3>
           <p className="text-sm mb-3">Get exclusive offers & the latest updates on new collections.</p>
           <form className="flex">
@@ -58,12 +58,12 @@ export default function Footer() {
               Subscribe
             </button>
           </form>
-        </div>
+        </div> */}
       </div>
 
       {/* Bottom Line */}
       <div className="mt-10 border-t border-pink-200 pt-4 text-center text-sm text-pink-700">
-        © {new Date().getFullYear()} Flora Fine Jewellers — Made with <Heart size={14} className="inline text-pink-500" /> and elegance.
+        © {new Date().getFullYear()} Flora Fine Jewellers — Made with <Heart size={16} className="inline fill-red-600" /> and elegance.
       </div>
     </footer>
   );

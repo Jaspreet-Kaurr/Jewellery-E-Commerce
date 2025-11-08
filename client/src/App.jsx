@@ -7,6 +7,7 @@ import Diamond from "./pages/Diamond";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Contact from "./pages/Contact-us";
+import Cart from "./pages/Cart";
 
 import ProductDetails from "./components/ProductDetails";
 
@@ -23,6 +24,7 @@ export default function App() {
         <Route path="/gold" element={<Gold />} />
         <Route path="/diamond" element={<Diamond />} />
         <Route path="/contact-us" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
 
 
         <Route path="/product" element={<ProductDetails />} />

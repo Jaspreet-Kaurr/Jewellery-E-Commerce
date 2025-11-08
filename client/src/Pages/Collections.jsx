@@ -1,101 +1,97 @@
-  // import React from "react";
-  // import { motion } from "framer-motion";
-
-  // // ✅ Replace these with your own assets
-  import heroImg from "../assets/images/heroImg.png";
-  import img1 from "../assets/images/img1.jpg";
-  import img2 from "../assets/images/img2.jpg";
-  import img3 from "../assets/images/img3.jpg";
-
-  // const fadeUp = {
-  //   hidden: { opacity: 0, y: 40 },
-  //   show: { opacity: 1, y: 0 }
-  // };
-
-  // export default function Collections() {
-  //   const products = [img1, img2, img3];
-
-  //   return (
-  //     <div className="w-full bg-white font-sans">
-
-
-  //       {/* ✅ Hero Section - Sticky feel */}
-  //       <motion.section
-  //         initial={{ opacity: 0 }}
-  //         animate={{ opacity: 1 }}
-  //         transition={{ duration: 1 }}
-  //         className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden"
-  //       >
-  //         <img
-  //           src={heroImg}
-  //           alt="Collection Hero"
-  //           className="w-full h-full object-contain object-center mx-auto mt-16 rounded-3xl shadow-xl"
-  //         />
+// import React from "react";
+// import { motion } from "framer-motion";
 
 
 
-  //         {/* Hero Text */}
-  //         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
-  //           <motion.h1
-  //             initial={{ opacity: 0, y: -20 }}
-  //             animate={{ opacity: 1, y: 0 }}
-  //             transition={{ duration: 0.8 }}
-  //             className="text-4xl md:text-6xl font-bold drop-shadow-md"
-  //           >
-  //             Sparkling Avenues 
-  //           </motion.h1>
-  //           <motion.p
-  //             initial={{ opacity: 0, y: 20 }}
-  //             animate={{ opacity: 1, y: 0 }}
-  //             transition={{ duration: 0.8, delay: 0.3 }}
-  //             className="mt-3 text-lg md:text-2xl drop-shadow-sm"
-  //           >
-  //             Explore our exclusive collections of fine jewellery
-  //           </motion.p>
-  //         </div>
-  //       </motion.section>
+// const fadeUp = {
+//   hidden: { opacity: 0, y: 40 },
+//   show: { opacity: 1, y: 0 }
+// };
+
+// export default function Collections() {
+//   const products = [img1, img2, img3];
+
+//   return (
+//     <div className="w-full bg-white font-sans">
 
 
-  //       {/* ✅ Product Grid Section */}
-  //       <div className="max-w-6xl mx-auto py-20">
-  //         {/* Grid */}
-  //         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
-  //           {products.map((img, i) => (
-  //             <motion.div
-  //               key={i}
-  //               variants={fadeUp}
-  //               initial="hidden"
-  //               whileInView="show"
-  //               transition={{ duration: 0.6, delay: i * 0.1 }}
-  //               viewport={{ once: true }}
-  //               className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition p-3"
-  //             >
-  //               <img src={img} alt="Jewelry" className="w-full h-80 object-cover rounded-xl" />
-  //               <div className="mt-4 text-center">
-  //                 <p className="text-lg font-medium text-gray-700">Elegant Diamond Piece</p>
-  //                 <p className="text-sm text-gray-500 mt-1">Gold · Diamond · Premium</p>
-  //               </div>
-  //             </motion.div>
-  //           ))}
-  //         </div>
-  //       </div>
+//       {/* ✅ Hero Section - Sticky feel */}
+//       <motion.section
+//         initial={{ opacity: 0 }}
+//         animate={{ opacity: 1 }}
+//         transition={{ duration: 1 }}
+//         className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden"
+//       >
+//         <img
+//           src={heroImg}
+//           alt="Collection Hero"
+//           className="w-full h-full object-contain object-center mx-auto mt-16 rounded-3xl shadow-xl"
+//         />
 
 
-  //       {/* ✅ Footer CTA */}
-  //       <motion.div
-  //         initial={{ opacity: 0, y: 30 }}
-  //         whileInView={{ opacity: 1, y: 0 }}
-  //         viewport={{ once: true }}
-  //         className="bg-black text-white py-20 text-center"
-  //       >
-  //         <h3 className="text-2xl md:text-4xl font-semibold mb-4">Visit Our Store</h3>
-  //         <p className="text-gray-300 text-lg max-w-xl mx-auto">
-  //           Discover timeless pieces crafted with elegance and perfection.
-  //         </p>
-  //       </motion.div>
-  //     </div>
-  //   );
-  // }
+
+//         {/* Hero Text */}
+//         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+//           <motion.h1
+//             initial={{ opacity: 0, y: -20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.8 }}
+//             className="text-4xl md:text-6xl font-bold drop-shadow-md"
+//           >
+//             Sparkling Avenues 
+//           </motion.h1>
+//           <motion.p
+//             initial={{ opacity: 0, y: 20 }}
+//             animate={{ opacity: 1, y: 0 }}
+//             transition={{ duration: 0.8, delay: 0.3 }}
+//             className="mt-3 text-lg md:text-2xl drop-shadow-sm"
+//           >
+//             Explore our exclusive collections of fine jewellery
+//           </motion.p>
+//         </div>
+//       </motion.section>
+
+
+//       {/* ✅ Product Grid Section */}
+//       <div className="max-w-6xl mx-auto py-20">
+//         {/* Grid */}
+//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
+//           {products.map((img, i) => (
+//             <motion.div
+//               key={i}
+//               variants={fadeUp}
+//               initial="hidden"
+//               whileInView="show"
+//               transition={{ duration: 0.6, delay: i * 0.1 }}
+//               viewport={{ once: true }}
+//               className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition p-3"
+//             >
+//               <img src={img} alt="Jewelry" className="w-full h-80 object-cover rounded-xl" />
+//               <div className="mt-4 text-center">
+//                 <p className="text-lg font-medium text-gray-700">Elegant Diamond Piece</p>
+//                 <p className="text-sm text-gray-500 mt-1">Gold · Diamond · Premium</p>
+//               </div>
+//             </motion.div>
+//           ))}
+//         </div>
+//       </div>
+
+
+//       {/* ✅ Footer CTA */}
+//       <motion.div
+//         initial={{ opacity: 0, y: 30 }}
+//         whileInView={{ opacity: 1, y: 0 }}
+//         viewport={{ once: true }}
+//         className="bg-black text-white py-20 text-center"
+//       >
+//         <h3 className="text-2xl md:text-4xl font-semibold mb-4">Visit Our Store</h3>
+//         <p className="text-gray-300 text-lg max-w-xl mx-auto">
+//           Discover timeless pieces crafted with elegance and perfection.
+//         </p>
+//       </motion.div>
+//     </div>
+//   );
+// }
 
 
 
@@ -104,16 +100,29 @@
 
 
 
-  import React from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
-// ✅ Replace these with your own assets
-// import heroImg from "../assets/images/collection-hero.jpg";
-// import img1 from "../assets/images/col-1.jpg";
-// import img2 from "../assets/images/col-2.jpg";
-// import img3 from "../assets/images/col-3.jpg";
-// import img4 from "../assets/images/col-4.jpg";
-// import img5 from "../assets/images/col-5.jpg";
+
+import heroImg2 from "../assets/images/heroImg.png";
+import heroImg3 from "../assets/images/heroImg2.png";
+import heroImg1 from "../assets/images/heroImg3.png";
+
+import img1 from "../assets/images/img1.jpg";
+import img2 from "../assets/images/img2.jpg";
+import img3 from "../assets/images/img3.jpg";
+
+import img4 from "../assets/images/img4.jpg";
+import img5 from "../assets/images/img5.jpg";
+import img6 from "../assets/images/img6.jpg";
+
+import img7 from "../assets/images/img7.jpg";
+import img8 from "../assets/images/img8.jpg";
+import img9 from "../assets/images/img9.jpg";
+
+
+import { useDispatch } from "react-redux";
+import { addToCart } from "../slices/cartSlice";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -121,97 +130,135 @@ const fadeUp = {
 };
 
 export default function Collections() {
-  // Multiple sections each with hero + products
-  const sections = [
+
+
+  // Multiple sections each with heading + hero + products + price
+  const collections = [
     {
-      hero: heroImg,
-      products: [img1, img2, img3]
+      title: "Colour Charms",
+      hero: heroImg1,
+      products: [img4, img5, img6],
+      price: "₹1,50,000",
     },
     {
-      hero: img2, // replace with heroImg2
-      products: [img3, img1, img2]
+      title: "Sparkling Avenues",
+      hero: heroImg2,
+      products: [img3, img1, img2],
+      price: "₹1,75,000",
     },
     {
-      hero: img3, // replace with heroImg3
-      products: [img2, img3, img1]
-    }
+      title: "Into Eternity",
+      hero: heroImg3,
+      products: [img7, img8, img9],
+      price: "₹2,20,000",
+    },
   ];
 
+
+
+  const dispatch = useDispatch();
+
   return (
-    <div className="w-full bg-white font-sans">
-      {sections.map((section, idx) => (
-        <div key={idx}>
-          {/* ✅ Hero Section */}
-          <motion.section
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden"
+    <div className="w-full font-sans bg-rose-50 pt-8">
+      <h1 className="text-center text-6xl font-bold text-pink-900/80 mt-20">Our Collections</h1>
+      <div>
+        <div className="h-2 w-[22vw] bg-pink-900/80 mt-4 mx-auto mb-8"></div>
+      </div>
+
+      {collections.map((collection, idx) => (
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="flex flex-col justify-center items-center my-28 w-[70vw] mx-auto 
+      bg-gradient-to-br from-pink-900/80 to-rose-200/70 p-10 rounded-3xl shadow-2xl border-2 border-white/50"
+        >
+          {/* ✅ Section Heading */}
+          <h2 className="text-5xl text-white font-bold mb-10 drop-shadow-lg text-center">
+            {collection.title}
+          </h2>
+
+          {/* ✅ Hero Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="w-full"
           >
             <img
-              src={section.hero}
-              alt="Collection Hero"
-              className="w-[80vw] h-full object-contain object-center mx-auto mt-16 rounded-3xl shadow-xl"
+              src={collection.hero}
+              alt={`${collection.title} Hero`}
+              className="w-full h-[300px] object-cover rounded-2xl shadow-lg border border-white/30"
             />
+          </motion.div>
 
-            {/* Hero Text */}
-            <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
-              <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-4xl md:text-6xl font-bold drop-shadow-md"
-              >
-                Sparkling Avenues ✨
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="mt-3 text-lg md:text-2xl drop-shadow-sm"
-              >
-                Explore our exclusive collections of fine jewellery
-              </motion.p>
-            </div>
-          </motion.section>
+          {/* ✅ Price + Button */}
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-8">
+            <p className="text-3xl font-bold text-white">{collection.price}</p>
+            {/* <button className="bg-white/20 hover:bg-white/40 border border-white text-white font-semibold text-lg px-8 py-3 rounded-2xl transition-all duration-300 hover:scale-105">
+              Add to Cart
+            </button> */}
+            <button
+              onClick={() =>
+                dispatch(
+                  addToCart({
+                    id:idx,
+                    title: collection.title,
+                    hero: collection.hero,
+                    price: collection.price,
+                  })
+                )
+              }
+              className="bg-white/20 hover:bg-white/40 border border-white text-white font-semibold text-lg px-8 py-3 rounded-2xl transition-all duration-300 hover:scale-105"
+            >
+              Add to Cart
+            </button>
+
+          </div>
 
           {/* ✅ Product Grid */}
-          <div className="max-w-6xl mx-auto py-20">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
-              {section.products.map((img, i) => (
-                <motion.div
-                  key={i}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="show"
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition p-3"
-                >
-                  <img src={img} alt="Jewelry" className="w-full h-80 object-cover rounded-xl" />
-                  <div className="mt-4 text-center">
-                    <p className="text-lg font-medium text-gray-700">Elegant Diamond Piece</p>
-                    <p className="text-sm text-gray-500 mt-1">Gold · Diamond · Premium</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 w-full">
+            {collection.products.map((img, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white/90 backdrop-blur-sm shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:scale-[1.03] p-3"
+              >
+                <img src={img} alt="Jewelry" className="w-full h-64 object-cover rounded-xl" />
+                <div className="mt-3 text-center">
+                  <p className="text-base font-medium text-gray-800">Elegant Diamond Piece</p>
+                  <p className="text-sm text-gray-500">Gold · Diamond · Premium</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
       ))}
+
+
 
       {/* ✅ Footer */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="bg-black text-white py-20 text-center"
+        className="border-white/90 border-4 text-white py-20 text-center m-20 rounded-4xl bg-gradient-to-br from-pink-800/80 to-rose-200/70 shadow-lg"
       >
         <h3 className="text-2xl md:text-4xl font-semibold mb-4">Visit Our Store</h3>
-        <p className="text-gray-300 text-lg max-w-xl mx-auto">
+        <p className="text-white text-lg max-w-xl mx-auto">
           Discover timeless pieces crafted with elegance and perfection.
+          <br />
+          194/1-GF Tilak Nagar, New Delhi - 110018
         </p>
       </motion.div>
     </div>
   );
+
 }
