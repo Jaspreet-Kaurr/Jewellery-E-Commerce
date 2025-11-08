@@ -7,7 +7,7 @@ import Diamond from "./pages/Diamond";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Contact from "./pages/Contact-us";
-import Cart from "./pages/Cart";
+import Cart from "./pages/ShoppingCart";
 
 import ProductDetails from "./components/ProductDetails";
 

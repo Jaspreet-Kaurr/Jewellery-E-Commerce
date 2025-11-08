@@ -3,13 +3,14 @@ import { motion } from "framer-motion";
 import { Trash2 } from "lucide-react";
 import { removeFromCart, updateQuantity } from "../slices/cartSlice";
 
+
 export default function ShoppingCart() {
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
   // ✅ Calculate total correctly (price is a string like "₹1,50,000", so we must clean it)
   const total = cartItems.reduce((sum, item) => {
-    const price = Number(item.price.replace(/[^0-9]/g, "")); // remove ₹ and commas
+   const price = Number(String(item.price).replace(/[^0-9]/g, ""));  // remove ₹ and commas
     return sum + price * item.qty;
   }, 0);
 

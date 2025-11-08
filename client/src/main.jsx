@@ -13,10 +13,10 @@ import { store } from "./store/store.js";
 createRoot(document.getElementById('root')).render(
   
   <BrowserRouter>
-  <ScrollToTop /> 
-  <Toaster position="top-center" />
 
    <Provider store={store}>    {/* ✅ Now Redux is available throughout your app.*/}
+  <ScrollToTop /> 
+  <Toaster position="top-center" />
     <App />
    </Provider>
     
