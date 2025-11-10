@@ -1,5 +1,15 @@
 //  # Database config, environment config
 // config/db.js
+
+
+
+// Easiest way
+// const connectDb = () => {
+//     return mongoose.connect(process.env.MONGO_URI);
+// }
+// module.exports = {connectDb};
+
+
 const mongoose = require("mongoose");
 
 const connectDB = async () => {

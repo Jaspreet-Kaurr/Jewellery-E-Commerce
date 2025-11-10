@@ -692,33 +692,36 @@ const Home = () => {
 
       {/* 💎 AUTO-PLAYING FEATURED GALLERY */}
       <section className="relative w-full py-20 bg-gradient-to-b from-white to-pink-50 overflow-hidden">
-        <div className="flex justify-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-pink-800">
-            Our Signature Designs
-          </h2>
-        </div>
+  <div className="flex justify-center mb-16">
+    <h2 className="text-4xl md:text-5xl font-bold text-pink-800">
+      Our Signature Designs
+    </h2>
+  </div>
 
-        <motion.div
-          className="flex gap-6 justify-center items-center"
-          animate={{
-            x: ["0%", "-100%"],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 25,
-            ease: "linear",
-          }}
-        >
-          {[...galleryImages, ...galleryImages].map((img, i) => (
-            <motion.img
-              key={i}
-              src={img}
-              alt={`gallery-${i}`}
-              className="w-64 h-80 rounded-2xl object-cover shadow-xl hover:scale-105 transition-transform duration-500"
-            />
-          ))}
-        </motion.div>
-      </section>
+  <div className="relative w-full overflow-hidden">
+    {/* Wrapper to contain the continuous motion */}
+    <motion.div
+      className="flex gap-6"
+      animate={{ x: ["0%", "-50%"] }}
+      transition={{
+        repeat: Infinity,
+        duration: 8,
+        ease: "linear",
+      }}
+    >
+      {/* Duplicate images for seamless loop */}
+      {[...galleryImages, ...galleryImages].map((img, i) => (
+        <motion.img 
+          key={i}
+          src={img}
+          alt={`gallery-${i}`}
+          className="w-64 h-80 rounded-2xl object-cover shadow-xl hover:scale-102 transition-transform duration-500"
+        />
+      ))}
+    </motion.div>
+  </div>
+</section>
+
 
       {/* ===== 3D MODEL SECTION ===== */}
       <div className="h-screen w-full bg-gradient-to-r from-pink-100 via-rose-50 to-gray-100 flex flex-col lg:flex-row items-center justify-between px-6 md:px-16 overflow-hidden">
