@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { SlidersHorizontal } from "lucide-react";
 import { motion } from "framer-motion";
 
-import { useDispatch } from "react-redux";
-import { addToCart } from "../slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../redux/authSlice";
 
 import { useNavigate } from "react-router-dom";
 
 import gold1 from "../assets/images/gold1.jpg";
 import gold2 from "../assets/images/gold2.jpg";
 import gold3 from "../assets/images/gold3.jpg";
+import toast from "react-hot-toast";
 
 // Filter options
 const priceOptions = ["₹25,000 - ₹50,000", "₹50,000 - ₹1,00,000", "Above ₹1,00,000"];
@@ -31,6 +32,8 @@ export default function Gold() {
   const [selectedGenders, setSelectedGenders] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector((state) => state.auth);
+
   const navigate = useNavigate();
 
   // Handle Checkbox selection
@@ -147,7 +150,7 @@ export default function Gold() {
             <p className="text-center text-gray-500 mt-20 text-lg">No products found for selected filters.</p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-              {filteredProducts.map((product , idx) => (
+              {filteredProducts.map((product, idx) => (
                 <motion.div
                   key={product.id}
                   whileHover={{ scale: 1.03 }}
@@ -167,16 +170,15 @@ export default function Gold() {
                   <p className="text-gray-600 text-sm mt-1">₹{product.price.toLocaleString()}</p>
 
                   <button
-                    onClick={() => 
-                      dispatch( addToCart({
-                                          id: product.id,
-                                          title: product.title,
-                                          hero: product.hero,
-                                          price: product.price,
-                                        })
-                                      
-                    )
-                  }
+                    onClick={() => {
+                      if (!isAuthenticated) {
+                        toast.error("Please login first to add items to cart");
+                        navigate("/login");
+                        return;
+                      }
+
+                      dispatch(addToCart(product));
+                    }}
                     className="bg-pink-900/70 text-white font-semibold mt-3 py-2 px-4 rounded-xl w-full hover:bg-pink-900 transition-all duration-300"
                   >
                     Add to Cart

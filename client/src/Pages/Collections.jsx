@@ -1,105 +1,3 @@
-// import React from "react";
-// import { motion } from "framer-motion";
-
-
-
-// const fadeUp = {
-//   hidden: { opacity: 0, y: 40 },
-//   show: { opacity: 1, y: 0 }
-// };
-
-// export default function Collections() {
-//   const products = [img1, img2, img3];
-
-//   return (
-//     <div className="w-full bg-white font-sans">
-
-
-//       {/* ✅ Hero Section - Sticky feel */}
-//       <motion.section
-//         initial={{ opacity: 0 }}
-//         animate={{ opacity: 1 }}
-//         transition={{ duration: 1 }}
-//         className="relative w-full h-[60vh] md:h-[80vh] overflow-hidden"
-//       >
-//         <img
-//           src={heroImg}
-//           alt="Collection Hero"
-//           className="w-full h-full object-contain object-center mx-auto mt-16 rounded-3xl shadow-xl"
-//         />
-
-
-
-//         {/* Hero Text */}
-//         <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
-//           <motion.h1
-//             initial={{ opacity: 0, y: -20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8 }}
-//             className="text-4xl md:text-6xl font-bold drop-shadow-md"
-//           >
-//             Sparkling Avenues 
-//           </motion.h1>
-//           <motion.p
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8, delay: 0.3 }}
-//             className="mt-3 text-lg md:text-2xl drop-shadow-sm"
-//           >
-//             Explore our exclusive collections of fine jewellery
-//           </motion.p>
-//         </div>
-//       </motion.section>
-
-
-//       {/* ✅ Product Grid Section */}
-//       <div className="max-w-6xl mx-auto py-20">
-//         {/* Grid */}
-//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
-//           {products.map((img, i) => (
-//             <motion.div
-//               key={i}
-//               variants={fadeUp}
-//               initial="hidden"
-//               whileInView="show"
-//               transition={{ duration: 0.6, delay: i * 0.1 }}
-//               viewport={{ once: true }}
-//               className="bg-white shadow-lg rounded-2xl overflow-hidden hover:shadow-2xl transition p-3"
-//             >
-//               <img src={img} alt="Jewelry" className="w-full h-80 object-cover rounded-xl" />
-//               <div className="mt-4 text-center">
-//                 <p className="text-lg font-medium text-gray-700">Elegant Diamond Piece</p>
-//                 <p className="text-sm text-gray-500 mt-1">Gold · Diamond · Premium</p>
-//               </div>
-//             </motion.div>
-//           ))}
-//         </div>
-//       </div>
-
-
-//       {/* ✅ Footer CTA */}
-//       <motion.div
-//         initial={{ opacity: 0, y: 30 }}
-//         whileInView={{ opacity: 1, y: 0 }}
-//         viewport={{ once: true }}
-//         className="bg-black text-white py-20 text-center"
-//       >
-//         <h3 className="text-2xl md:text-4xl font-semibold mb-4">Visit Our Store</h3>
-//         <p className="text-gray-300 text-lg max-w-xl mx-auto">
-//           Discover timeless pieces crafted with elegance and perfection.
-//         </p>
-//       </motion.div>
-//     </div>
-//   );
-// }
-
-
-
-
-
-
-
-
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -121,8 +19,11 @@ import img8 from "../assets/images/img8.jpg";
 import img9 from "../assets/images/img9.jpg";
 
 
-import { useDispatch } from "react-redux";
-import { addToCart } from "../slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../redux/authSlice";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -157,6 +58,8 @@ export default function Collections() {
 
 
   const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
   return (
     <div className="w-full font-sans bg-rose-50 pt-8">
@@ -202,16 +105,16 @@ export default function Collections() {
               Add to Cart
             </button> */}
             <button
-              onClick={() =>
-                dispatch(
-                  addToCart({
-                    id:idx,
-                    title: collection.title,
-                    hero: collection.hero,
-                    price: collection.price,
-                  })
-                )
-              }
+              onClick={() => {
+                if (!isAuthenticated) {
+                  toast.error("Please login first to add items to cart");
+                  navigate("/login");
+                  return;
+                }
+
+                dispatch(addToCart(collection));
+              }}
+
               className="bg-white/20 hover:bg-white/40 border border-white text-white font-semibold text-lg px-8 py-3 rounded-2xl transition-all duration-300 hover:scale-105"
             >
               Add to Cart

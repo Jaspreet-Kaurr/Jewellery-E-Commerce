@@ -1,9 +1,16 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaStar, FaFacebookF, FaTwitter, FaPinterestP } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../redux/authSlice";
+import toast from "react-hot-toast";
+
 
 const ProductDetails = () => {
   const { state: product } = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+const { isAuthenticated } = useSelector((state) => state.auth);
+
 
   if (!product) return <h2>No product data found</h2>;
 
@@ -60,21 +67,24 @@ const ProductDetails = () => {
 
           {/* Buttons */}
           <div className="flex gap-4 mb-6">
-            <button className="bg-pink-700 text-white px-6 py-3 rounded-lg hover:bg-pink-800 transition">
+            {/* <button className="bg-pink-700 text-white px-6 py-3 rounded-lg hover:bg-pink-800 transition">
               Buy Now
-            </button>
-            <button className="border border-pink-700 text-pink-700 px-6 py-3 rounded-lg hover:bg-pink-50 transition">
+            </button> */}
+            <button 
+            onClick={() => {
+                            if (!isAuthenticated) {
+                              toast.error("Please login first to add items to cart");
+                              navigate("/login");
+                              return;
+                            }
+            
+                            dispatch(addToCart(product));
+                          }}
+            
+            className="border border-pink-700 text-pink-700 px-6 py-3 rounded-lg hover:bg-pink-50 transition">
               Add to Cart
             </button>
           </div>
-
-          {/* Social Share */}
-          {/* <p className="text-gray-600 mb-2">Share with friends:</p>
-          <div className="flex gap-4 text-lg">
-            <FaFacebookF className="text-blue-600 cursor-pointer hover:scale-110 transition" />
-            <FaTwitter className="text-blue-400 cursor-pointer hover:scale-110 transition" />
-            <FaPinterestP className="text-red-500 cursor-pointer hover:scale-110 transition" />
-          </div> */}
         </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { Trash2 } from "lucide-react";
-import { removeFromCart, updateQuantity } from "../slices/cartSlice";
+import { removeFromCart, updateQuantity } from "../redux/authSlice";
 
 
 export default function ShoppingCart() {
-  const cartItems = useSelector((state) => state.cart.items);
+  const cartItems = useSelector((state) => state.auth.cart);
   const dispatch = useDispatch();
 
   // ✅ Calculate total correctly (price is a string like "₹1,50,000", so we must clean it)
@@ -15,7 +15,7 @@ export default function ShoppingCart() {
   }, 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-100 via-pink-200 to-pink-300 p-6 md:p-12">
+    <div className="min-h-screen bg-gradient-to-b from-pink-100 via-pink-200 to-pink-300 p-6 md:p-12 mt-20 pb-18">
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}

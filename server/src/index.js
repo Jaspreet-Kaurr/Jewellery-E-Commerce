@@ -1,28 +1,32 @@
-//  # Main entry point
-// server/server.js
-const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv");
-
-// const userRoutes = require("./routes/userRoutes");   
+// // Application config and middleware 
 
 
-dotenv.config();
+// const express = require("express");
+
+// const cors = require("cors");
+// const dotenv = require("dotenv");
+
+// // const userRoutes = require("./routes/userRoutes");   
 
 
-const app = express();
-
-app.use(express.json());
-app.use(cors());
-
-app.get("/", (req, res) => {
-  res.send("API is running...");
-});
-
-// routes
-// app.use("/api/users", userRoutes);
+// dotenv.config();
 
 
-module.exports = app;
+// const app = express();
+
+// app.use(express.json());
+// app.use(cors());
+
+// app.get("/", (req, res) => {
+//   res.send("API is running...");
+// });
+
+
+// // Routes
+// const authRouters = require("./routes/auth.route.js");
+// const userRouters = require("./routes/user.route.js");
+
+
+// module.exports = app;
 
 

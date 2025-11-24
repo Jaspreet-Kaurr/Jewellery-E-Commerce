@@ -7,7 +7,7 @@ export default function Footer() {
         
         {/* Brand Section */}
         <div>
-          <h2 className="text-2xl font-bold text-pink-700">Flora Fine Jewellers</h2>
+          <h2 className="text-2xl font-bold text-pink-700">Jass Jewels</h2>
           <p className="mt-3 text-sm">
             Timeless beauty, crafted with love. Discover elegant pieces that make every moment shine.
           </p>
@@ -63,7 +63,7 @@ export default function Footer() {
 
       {/* Bottom Line */}
       <div className="mt-10 border-t border-pink-200 pt-4 text-center text-sm text-pink-700">
-        © {new Date().getFullYear()} Flora Fine Jewellers — Made with <Heart size={16} className="inline fill-red-600" /> and elegance.
+        © {new Date().getFullYear()} Jass Jewels — Made with <Heart size={16} className="inline fill-red-600" /> and elegance.
       </div>
     </footer>
   );

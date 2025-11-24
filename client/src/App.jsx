@@ -8,6 +8,11 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Contact from "./pages/Contact-us";
 import Cart from "./pages/ShoppingCart";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Profile from "./pages/Profile";
+// import Dashboard from "./pages/Dashboard";
+import ProtectedRoute from "./ProtectedRoute";
 
 import ProductDetails from "./components/ProductDetails";
 
@@ -27,11 +32,23 @@ export default function App() {
         <Route path="/cart" element={<Cart />} />
 
 
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+
         <Route path="/product" element={<ProductDetails />} />
 
 
+        <Route path="/dashboard" element={
+          <ProtectedRoute>
+            {/* <Dashboard /> */}
+          </ProtectedRoute>
+        } />
+
+
       </Routes>
-      
+
       <Footer />
     </>
   );

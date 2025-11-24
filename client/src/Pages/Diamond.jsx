@@ -124,9 +124,11 @@
 import React, { useState } from "react";
 import { SlidersHorizontal } from "lucide-react";
 import { motion } from "framer-motion";
+import toast from "react-hot-toast";
 
-import { useDispatch } from "react-redux";
-import { addToCart } from "../slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../redux/authSlice";
+
 import { useNavigate } from "react-router-dom";
 
 // Import diamond images
@@ -154,6 +156,8 @@ export default function Diamond() {
   const [selectedGenders, setSelectedGenders] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
   const dispatch = useDispatch();
+  const { isAuthenticated } = useSelector((state) => state.auth);
+
   const navigate = useNavigate();
 
   // Handle Checkbox selection
@@ -183,7 +187,7 @@ export default function Diamond() {
   });
 
   return (
-    
+
     <div className="px-6 md:px-20 py-8 bg-rose-50 min-h-screen pt-40 pb-28">
       {/* Fixed Header */}
       <div className="fixed top-20 left-0 w-full bg-rose-50 z-40 px-4 md:px-20 py-4 ml-6">
@@ -290,16 +294,15 @@ export default function Diamond() {
                   <p className="text-gray-600 text-sm mt-1">₹{product.price.toLocaleString()}</p>
 
                   <button
-                    onClick={() =>
-                      dispatch(
-                        addToCart({
-                          id: product.id,
-                          title: product.title,
-                          hero: product.hero,
-                          price: product.price,
-                        })
-                      )
-                    }
+                    onClick={() => {
+                      if (!isAuthenticated) {
+                        toast.error("Please login first to add items to cart");
+                        navigate("/login");
+                        return;
+                      }
+
+                      dispatch(addToCart(product));
+                    }}
                     className="bg-pink-900/70 text-white font-semibold mt-3 py-2 px-4 rounded-xl w-full hover:bg-pink-900 transition-all duration-300"
                   >
                     Add to Cart
