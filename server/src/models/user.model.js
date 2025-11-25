@@ -23,7 +23,16 @@ const userSchema = new mongoose.Schema({
         },
     mobile: { 
             type: String,
+            required: true,
         },
+    address: { 
+         type: String,
+         required: true,
+        },
+    // profileImage: { 
+    //     type: String,
+    //      default: "/uploads/default.png", 
+    //     },
 }, { timestamps: true });
 
 

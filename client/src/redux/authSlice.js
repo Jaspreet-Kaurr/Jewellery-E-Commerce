@@ -47,6 +47,32 @@ export const loginUser = createAsyncThunk(
   }
 );
 
+
+
+
+export const fetchCurrentUser = createAsyncThunk(
+  "auth/fetchCurrentUser",
+  async (_, { rejectWithValue }) => {
+    try {
+      const res = await fetch("http://localhost:5000/api/user/me", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) return rejectWithValue(data.message);
+
+      return data;
+    } catch (err) {
+      return rejectWithValue("Cannot fetch user");
+    }
+  }
+);
+
+
+
 // ---------------- SLICE -----------------
 
 const authSlice = createSlice({
@@ -106,43 +132,43 @@ const authSlice = createSlice({
         );
       }
     },
-  
 
 
-  updateQuantity(state, action) {
-    const { id, type } = action.payload;
-    const item = state.cart.find((item) => item.id === id);
 
-    if (!item) return;
+    updateQuantity(state, action) {
+      const { id, type } = action.payload;
+      const item = state.cart.find((item) => item.id === id);
 
-    if (type === "inc") item.qty++;
+      if (!item) return;
 
-    else if (type === "dec" && item.qty > 1) item.qty--;
+      if (type === "inc") item.qty++;
 
-    if (state.user) {
-      localStorage.setItem(
-        `cart_${state.user.email}`,
-        JSON.stringify(state.cart)
-      );
-    }
+      else if (type === "dec" && item.qty > 1) item.qty--;
+
+      if (state.user) {
+        localStorage.setItem(
+          `cart_${state.user.email}`,
+          JSON.stringify(state.cart)
+        );
+      }
+    },
+
+
+
+    loadUserCart(state) {
+      if (state.user) {
+        const loadingCart = JSON.parse(
+          localStorage.getItem(`cart_${state.user.email}`)
+        );
+        state.cart = loadingCart || [];
+      }
+    },
+
+    clearCart(state) {
+      state.cart = [];
+    },
+
   },
-
-
-
-  loadUserCart(state) {
-    if (state.user) {
-      const loadingCart = JSON.parse(
-        localStorage.getItem(`cart_${state.user.email}`)
-      );
-      state.cart = loadingCart || [];
-    }
-  },
-
-  clearCart(state) {
-    state.cart = [];
-  },
-
-},
 
 
 
@@ -188,6 +214,11 @@ const authSlice = createSlice({
       .addCase(signupUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(fetchCurrentUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        // save full user in storage
+        localStorage.setItem("user", JSON.stringify(action.payload));
       });
   },
 });

@@ -157,10 +157,10 @@ const handleSubmit = async (e) => {
             )}
           </div>
 
-          {/* Mobile (Optional) */}
+          {/* Mobile */}
           <div>
             <label className="block text-pink-800 font-semibold mb-2">
-              Mobile (optional)
+              Mobile *
             </label>
             <input
               type="tel"
@@ -169,6 +169,20 @@ const handleSubmit = async (e) => {
               onChange={handleChange}
               className="w-full p-3 border border-pink-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400"
               placeholder="Enter your mobile number"
+            />
+          </div>
+
+          <div>
+            <label className="block text-pink-800 font-semibold mb-2">
+              Address *
+            </label>
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              className="w-full p-3 border border-pink-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400"
+              placeholder="Enter your address"
             />
           </div>
 

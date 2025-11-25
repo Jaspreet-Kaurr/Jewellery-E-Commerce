@@ -41,7 +41,7 @@ const Navbar = () => {
 
         {/* 🔸 Icons + Auth Buttons Section */}
         <div className="flex items-center gap-6">
-          <Search className="w-6 h-6 cursor-pointer hover:text-pink-300 transition" />
+          {/* <Search className="w-6 h-6 cursor-pointer hover:text-pink-300 transition" /> */}
           <User 
           onClick={() => navigate("/profile")}
           className="w-6 h-6 cursor-pointer hover:text-pink-300 transition" />

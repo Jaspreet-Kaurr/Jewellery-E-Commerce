@@ -17,8 +17,33 @@ import ProtectedRoute from "./ProtectedRoute";
 import ProductDetails from "./components/ProductDetails";
 
 
+import { useDispatch } from "react-redux";
+import { fetchCurrentUser } from "./redux/authSlice";
+import { loadUserCart } from "./redux/authSlice";
+
+
 
 export default function App() {
+
+  const dispatch = useDispatch();
+  
+  
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      dispatch(fetchCurrentUser());
+    }
+  }, []);
+  
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  
+useEffect(() => {
+  if (user) dispatch(loadUserCart());
+}, [user]);
+
+
+
+
   return (
     <>
       <Navbar />
