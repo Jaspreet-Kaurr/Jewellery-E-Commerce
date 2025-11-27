@@ -30,7 +30,7 @@ const { isAuthenticated } = useSelector((state) => state.auth);
         {/* Product Image */}
         <div className="flex justify-center">
           <img 
-            src={product.image} 
+            src={product.hero} 
             alt={product.name}
             className="w-80 h-80 object-contain rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
           />
@@ -57,7 +57,7 @@ const { isAuthenticated } = useSelector((state) => state.auth);
           {/* Description */}
           <h2 className="font-semibold text-gray-700 mb-2 text-lg">Product Details</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            {product.description}
+            {product.title}
           </p>
 
           {/* Stock */}

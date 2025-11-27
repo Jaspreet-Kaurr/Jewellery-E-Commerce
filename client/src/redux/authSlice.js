@@ -90,12 +90,12 @@ const authSlice = createSlice({
   reducers: {
     logout(state) {
       state.user = null;
+      toast.success("Logged out successfully");
       state.token = null;
       state.isAuthenticated = false;
       state.cart = [];
       localStorage.removeItem("token");
       localStorage.removeItem("user");
-      toast.success("Logged out successfully");
     },
 
     addToCart(state, action) {

@@ -11,8 +11,6 @@ import Cart from "./pages/ShoppingCart";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
-// import Dashboard from "./pages/Dashboard";
-import ProtectedRoute from "./ProtectedRoute";
 
 import ProductDetails from "./components/ProductDetails";
 
@@ -20,6 +18,8 @@ import ProductDetails from "./components/ProductDetails";
 import { useDispatch } from "react-redux";
 import { fetchCurrentUser } from "./redux/authSlice";
 import { loadUserCart } from "./redux/authSlice";
+import SuccessCard from "./pages/SuccessCard";
+import CancelCard from "./pages/CancelCard";
 
 
 
@@ -64,13 +64,8 @@ useEffect(() => {
 
         <Route path="/product" element={<ProductDetails />} />
 
-
-        <Route path="/dashboard" element={
-          <ProtectedRoute>
-            {/* <Dashboard /> */}
-          </ProtectedRoute>
-        } />
-
+        <Route path="/payment-success" element={<SuccessCard />} />
+        <Route path="/payment-cancel" element={<CancelCard />} />
 
       </Routes>
 

@@ -62,7 +62,7 @@ const Profile = () => {
         <hr className="my-8 border-pink-300" />
 
         <h3 className="text-2xl font-semibold text-pink-700 mb-4">
-          Purchase History
+          Selected Products
         </h3>
 
         {/* Cart Items */}

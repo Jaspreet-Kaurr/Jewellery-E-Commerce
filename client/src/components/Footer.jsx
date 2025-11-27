@@ -1,69 +1,52 @@
-import { Heart, Instagram, Facebook, Twitter, Mail } from "lucide-react";
+import { Heart, Instagram, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-pink-100 text-pink-900 pt-10 pb-6 px-6  border-t border-pink-200">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-pink-100 text-pink-900 py-8 px-6 border-t border-pink-200">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
         
-        {/* Brand Section */}
-        <div>
+        {/* Left Section - Brand */}
+        <div className="text-center md:text-left">
           <h2 className="text-2xl font-bold text-pink-700">Jass Jewels</h2>
-          <p className="mt-3 text-sm">
+          <p className="mt-2 text-sm max-w-xs">
             Timeless beauty, crafted with love. Discover elegant pieces that make every moment shine.
           </p>
-          <div className="flex gap-3 mt-4">
-            <a href="#" className="hover:text-pink-600"><Instagram size={20} /></a>
-            <a href="#" className="hover:text-pink-600"><Facebook size={20} /></a>
-            <a href="#" className="hover:text-pink-600"><Twitter size={20} /></a>
-            <a href="#" className="hover:text-pink-600"><Mail size={20} /></a>
+
+          {/* Social Icons */}
+          <div className="flex justify-center md:justify-start gap-4 mt-4">
+            <a
+              href="https://www.instagram.com/jass_kaurr_r"
+              target="_blank"
+              className="p-2 bg-white rounded-full shadow hover:shadow-md hover:text-pink-600 transition"
+            >
+              <Instagram size={20} />
+            </a>
+
+            <a
+              href="mailto:kaurjass9091@gmail.com"
+              className="p-2 bg-white rounded-full shadow hover:shadow-md hover:text-pink-600 transition"
+            >
+              <Mail size={20} />
+            </a>
           </div>
         </div>
 
-        {/* Quick Links */}
-        <div>
-          <h3 className="font-semibold text-pink-700 mb-3">Quick Links</h3>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-pink-600">Home</a></li>
-            <li><a href="#" className="hover:text-pink-600">Shop</a></li>
-            <li><a href="#" className="hover:text-pink-600">Collections</a></li>
-            <li><a href="#" className="hover:text-pink-600">About Us</a></li>
+        {/* Right Section - Quick Links */}
+        <div className="text-center md:text-right">
+          <h3 className="font-semibold text-lg text-pink-700 mb-2">Quick Links</h3>
+          <ul className="space-y-1 text-sm">
+            <li><a href="/" className="hover:text-pink-600 transition">Home</a></li>
+            <li><a href="/diamond" className="hover:text-pink-600 transition">Shop</a></li>
+            <li><a href="/collections" className="hover:text-pink-600 transition">Collections</a></li>
+            <li><a href="/contact-us" className="hover:text-pink-600 transition">Contact Us</a></li>
           </ul>
         </div>
-
-        {/* Support */}
-        <div>
-          <h3 className="font-semibold text-pink-700 mb-3">Support</h3>
-          <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-pink-600">FAQs</a></li>
-            <li><a href="#" className="hover:text-pink-600">Shipping & Returns</a></li>
-            <li><a href="#" className="hover:text-pink-600">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-pink-600">Contact Us</a></li>
-          </ul>
-        </div>
-
-        {/* Newsletter */}
-        {/* <div>
-          <h3 className="font-semibold text-pink-700 mb-3">Join Our Newsletter</h3>
-          <p className="text-sm mb-3">Get exclusive offers & the latest updates on new collections.</p>
-          <form className="flex">
-            <input
-              type="email"
-              placeholder="Your email"
-              className="w-full p-2 rounded-l-lg border border-pink-300 focus:outline-none focus:border-pink-500"
-            />
-            <button
-              type="submit"
-              className="bg-pink-600 hover:bg-pink-700 text-white px-4 rounded-r-lg"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div> */}
       </div>
 
       {/* Bottom Line */}
-      <div className="mt-10 border-t border-pink-200 pt-4 text-center text-sm text-pink-700">
-        © {new Date().getFullYear()} Jass Jewels — Made with <Heart size={16} className="inline fill-red-600" /> and elegance.
+      <div className="mt-6 text-center text-sm text-pink-700">
+        © {new Date().getFullYear()} Jass Jewels — Made with{" "}
+        <Heart size={14} className="inline fill-red-600" /> elegance.
       </div>
     </footer>
   );

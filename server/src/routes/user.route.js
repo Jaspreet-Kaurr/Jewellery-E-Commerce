@@ -2,15 +2,10 @@
 
 
 import express from "express";
-// import { register, login } from "../controllers/auth.controller.js";
 import { auth as authMiddleware } from "../middlewares/auth.middleware.js";
 import User from "../models/user.model.js";
-import Order from "../models/order.model.js";
-
 const router = express.Router();
 
-// const multer = require("multer");
-// const upload = multer({ dest: "uploads/" });   // public/uploads
 
 
 router.get("/profile", authMiddleware, async (req, res) => {
@@ -32,11 +27,6 @@ router.put("/update", authMiddleware, async (req, res) => {
 });
 
 
-router.get("/orders", authMiddleware, async (req, res) => {
-  const orders = await Order.find({ userId: req.user.id });
-  res.json(orders);
-});
-
 
 router.get("/me", authMiddleware, async (req, res) => {
   try {
@@ -50,17 +40,5 @@ router.get("/me", authMiddleware, async (req, res) => {
   }
 });
 
-// router.put("/update-profile", authMiddleware, upload.single("profileImage"), async (req, res) => {
-//   try {
-//     const updates = req.body;
-//     if (req.file) {
-//       updates.profileImage = `/uploads/${req.file.filename}`;
-//     }
-//     const user = await User.findByIdAndUpdate(req.user.id, updates, { new: true }).select("-password");
-//     res.json({ message: "Profile updated", user });
-//   } catch (error) {
-//     res.status(500).json({ message: "Server Error", error });
-//   }
-// });
 
 export default router;
