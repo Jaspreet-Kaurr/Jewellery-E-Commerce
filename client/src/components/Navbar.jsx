@@ -3,6 +3,8 @@ import { ShoppingCart, User, Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../redux/authSlice";
+// import { API_URL } from "../config";
+
 
 const Navbar = () => {
   const navigate = useNavigate();

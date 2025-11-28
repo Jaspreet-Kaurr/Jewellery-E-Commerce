@@ -42,6 +42,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 import { Trash2 } from "lucide-react";
 import { removeFromCart, updateQuantity } from "../redux/authSlice";
+import { API_URL } from "../config";
+
 
 export default function ShoppingCart() {
   const cartItems = useSelector((state) => state.auth.cart);
@@ -54,7 +56,7 @@ export default function ShoppingCart() {
 
   const handleCheckout = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/create-checkout-session", {
+      const res = await fetch(`${API_URL}/api/create-checkout-session`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ products: cartItems }),
