@@ -1,16 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCurrentUser } from "../redux/authSlice";
+import { fetchCurrentUser, updateProfile } from "../redux/authSlice";
 import { motion } from "framer-motion";
 
 const Profile = () => {
   const dispatch = useDispatch();
   const { user, loading, cart } = useSelector((state) => state.auth);
 
-  // Fetch user when profile loads
+  // Local state for edit mode
+  const [isEditing, setIsEditing] = useState(false);
+  const [mobile, setMobile] = useState("");
+  const [address, setAddress] = useState("");
+
+  // Fetch user when page loads
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
+
+  // When user updates fetched, fill fields
+  useEffect(() => {
+    if (user) {
+      setMobile(user.mobile || "");
+      setAddress(user.address || "");
+    }
+  }, [user]);
 
   // Loading state
   if (loading) {
@@ -21,7 +34,7 @@ const Profile = () => {
     );
   }
 
-  // When no user found
+  // User not logged in
   if (!user) {
     return (
       <h2 className="text-center mt-40 mb-20 text-xl font-bold text-pink-600">
@@ -29,6 +42,13 @@ const Profile = () => {
       </h2>
     );
   }
+
+  // Submit update request
+  const handleUpdate = async () => {
+    await dispatch(updateProfile({ mobile, address }));
+    dispatch(fetchCurrentUser());
+    setIsEditing(false);
+  };
 
   return (
     <div className="flex justify-center px-4 py-6">
@@ -43,20 +63,75 @@ const Profile = () => {
           My Profile
         </h2>
 
-        {/* User Details */}
+        {/* USER DETAILS */}
         <div className="mt-4 text-[17px] leading-relaxed">
           <p>
-            <strong>Name:</strong> {user?.firstName + " " + user.lastName}
+            <strong>Name:</strong> {user?.firstName + " " + user?.lastName}
           </p>
           <p>
             <strong>Email:</strong> {user?.email}
           </p>
-          <p>
-            <strong>Mobile:</strong> {user?.mobile || "Not added"}
-          </p>
-          <p>
-            <strong>Address:</strong> {user?.address || "Not added"}
-          </p>
+
+          {/* Editable Fields */}
+          <div className="mt-4 flex flex-col gap-3">
+            {/* MOBILE */}
+            <div>
+              <strong>Mobile:</strong>
+              {isEditing ? (
+                <input
+                  type="text"
+                  value={mobile}
+                  onChange={(e) => setMobile(e.target.value)}
+                  className="mt-1 w-full border border-pink-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-pink-400"
+                  placeholder="Enter mobile"
+                />
+              ) : (
+                <span className="ml-1">{mobile || "Not added"}</span>
+              )}
+            </div>
+
+            {/* ADDRESS */}
+            <div>
+              <strong>Address:</strong>
+              {isEditing ? (
+                <textarea
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  className="mt-1 w-full border border-pink-300 px-3 py-2 rounded-lg focus:ring-2 focus:ring-pink-400"
+                  placeholder="Enter address"
+                ></textarea>
+              ) : (
+                <span className="ml-1">{address || "Not added"}</span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* EDIT BUTTONS */}
+        <div className="mt-6 flex gap-3 justify-center">
+          {!isEditing ? (
+            <button
+              onClick={() => setIsEditing(true)}
+              className="px-6 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700"
+            >
+              Edit Profile
+            </button>
+          ) : (
+            <>
+              <button
+                onClick={handleUpdate}
+                className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+              >
+                Save
+              </button>
+              <button
+                onClick={() => setIsEditing(false)}
+                className="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
+              >
+                Cancel
+              </button>
+            </>
+          )}
         </div>
 
         <hr className="my-8 border-pink-300" />
@@ -65,7 +140,7 @@ const Profile = () => {
           Selected Products
         </h3>
 
-        {/* Cart Items */}
+        {/* CART ITEMS */}
         {cart.length === 0 ? (
           <p className="text-gray-700 text-lg">No items purchased yet.</p>
         ) : (

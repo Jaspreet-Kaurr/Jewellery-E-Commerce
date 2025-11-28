@@ -73,6 +73,35 @@ export const fetchCurrentUser = createAsyncThunk(
 
 
 
+
+
+export const updateProfile = createAsyncThunk(
+  "auth/updateProfile",
+  async ({ mobile, address }, { rejectWithValue }) => {
+    try {
+      const res = await fetch("http://localhost:5000/api/user/update", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({ mobile, address }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) return rejectWithValue(data.message);
+
+      return data;
+    } catch (err) {
+      return rejectWithValue("Update failed");
+    }
+  }
+);
+
+
+
+
 // ---------------- SLICE -----------------
 
 const authSlice = createSlice({
@@ -219,7 +248,13 @@ const authSlice = createSlice({
         state.user = action.payload;
         // save full user in storage
         localStorage.setItem("user", JSON.stringify(action.payload));
+      })
+      .addCase(updateProfile.fulfilled, (state, action) => {
+        state.user = action.payload;
+        localStorage.setItem("user", JSON.stringify(action.payload));
       });
+
+
   },
 });
 

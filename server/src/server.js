@@ -1,15 +1,3 @@
-//  Express app setup (main entry)
-
-// const app = require('./index');
-// const connectDB = require("./config/db");
-
-// PORT = process.env.PORT || 8080;
-// app.listen(PORT, async() => {
-//     await connectDB();
-//     console.log("Server running on port :", PORT )
-// }); 
-
-
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";

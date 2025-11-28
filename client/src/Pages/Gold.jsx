@@ -26,7 +26,7 @@ const typeOptions = ["Gold Earrings", "Gold Rings", "Gold Chains"];
 
 // Product Data
 const allProducts = [
-  { id: 4, title: "Elegant Gold Drop Earrings", hero: gold1, price: 32499, gender: "Women", type: "Gold Earrings" },
+  { id: 4, title: "Elegant Gold Drop Earrings", hero: gold1, price: 132499, gender: "Women", type: "Gold Earrings" },
   { id: 5, title: "Abstract Graceful Ring", hero: gold5, price: 54999, gender: "Women", type: "Gold Rings" },
   { id: 6, title: "Classic Cable Gold Chain", hero: gold7, price: 120000, gender: "Women", type: "Gold Chains" },
   { id: 7, title: "Regal Broad Chain for Men", hero: gold8, price: 345000, gender: "Men", type: "Gold Chains" },
