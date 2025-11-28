@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
+import { API_URL } from "../config";
+
 
 // Load token from localStorage on app start
 const token = localStorage.getItem("token");
@@ -12,7 +14,7 @@ export const signupUser = createAsyncThunk(
   "auth/signupUser",
   async (formData, { rejectWithValue }) => {
     try {
-      const res = await fetch("http://localhost:5000/api/auth/register", {
+      const res = await fetch(`${API_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -32,7 +34,7 @@ export const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (formData, { rejectWithValue }) => {
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -54,7 +56,7 @@ export const fetchCurrentUser = createAsyncThunk(
   "auth/fetchCurrentUser",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await fetch("http://localhost:5000/api/user/me", {
+      const res = await fetch(`${API_URL}/api/user/me`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -79,7 +81,7 @@ export const updateProfile = createAsyncThunk(
   "auth/updateProfile",
   async ({ mobile, address }, { rejectWithValue }) => {
     try {
-      const res = await fetch("http://localhost:5000/api/user/update", {
+      const res = await fetch(`${API_URL}/api/user/update`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
