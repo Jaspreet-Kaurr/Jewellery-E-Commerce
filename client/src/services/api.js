@@ -1,8 +1,12 @@
-// src/services/api.js
-import axios from "axios";
+// frontend/src/services/api.js
 
-const API = axios.create({
-  baseURL: "http://localhost:5000/api", // backend base URL
-});
+// ← Axios API calls (base URL setup)
 
-export default API;
+
+// import axios from "axios";
+
+// const API = axios.create({
+//   baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api", // backend base URL
+// });
+
+// export default API;

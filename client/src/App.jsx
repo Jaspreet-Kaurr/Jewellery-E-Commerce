@@ -1,16 +1,104 @@
-import React from 'react'
-import Home from './Pages/Home'
-import Navbar from './Pages/Navbar'
+import React, { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Collections from "./pages/Collections";
+import Gold from "./pages/Gold";
+import Diamond from "./pages/Diamond";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Contact from "./pages/Contact-us";
+import Cart from "./pages/ShoppingCart";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Profile from "./pages/Profile";
 
-const App = () => {
+import ProductDetails from "./components/ProductDetails";
+
+
+import { useDispatch } from "react-redux";
+import { fetchCurrentUser } from "./redux/authSlice";
+import { loadUserCart } from "./redux/authSlice";
+import SuccessCard from "./pages/SuccessCard";
+import CancelCard from "./pages/CancelCard";
+
+
+
+export default function App() {
+
+  const dispatch = useDispatch();
+  
+  
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      dispatch(fetchCurrentUser());
+    }
+  }, []);
+  
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  
+useEffect(() => {
+  if (user) dispatch(loadUserCart());
+}, [user]);
+
+
+
+
   return (
-    <div>
-      <Home />
+    <>
       <Navbar />
-    </div>
-  )
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/collections" element={<Collections />} />
+        <Route path="/gold" element={<Gold />} />
+        <Route path="/diamond" element={<Diamond />} />
+        <Route path="/contact-us" element={<Contact />} />
+        <Route path="/cart" element={<Cart />} />
+
+
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+
+        <Route path="/product" element={<ProductDetails />} />
+
+        <Route path="/payment-success" element={<SuccessCard />} />
+        <Route path="/payment-cancel" element={<CancelCard />} />
+
+      </Routes>
+
+      <Footer />
+    </>
+  );
 }
 
-export default App
 
- 
+
+
+// import React from "react";
+// import { Canvas } from "@react-three/fiber";
+// import { OrbitControls, useGLTF } from "@react-three/drei";
+// import Home from './Pages/Home'
+// import Navbar from './Pages/Navbar'
+
+// function Model() {
+//   const { scene } = useGLTF("/models/diamond_ring.glb");
+//   return <primitive object={scene} />;
+// }
+
+// export default function App() {
+//   return (
+//     <>
+//       <Navbar />
+//       <Home />
+//       <Canvas camera={{ position: [0, 2, 5] }}>
+//         <ambientLight intensity={0.7} />
+//         <directionalLight position={[10, 10, 10]} />
+//         <OrbitControls />
+//         <Model />
+//       </Canvas>
+//     </>
+//   );
+// }
