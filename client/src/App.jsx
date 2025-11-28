@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home.jsx";
+import Home from "./pages/Home.js";
 import Collections from "./pages/Collections.jsx";
-import Gold from "./pages/Gold.jsx";
-import Diamond from "./pages/Diamond.jsx";
+import Gold from "./pages/Gold.js";
+import Diamond from "./pages/Diamond.js";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
-import Contact from "./pages/Contact-us.jsx";
-import Cart from "./pages/ShoppingCart.jsx";
-import Login from "./pages/Login.jsx";
-import Signup from "./pages/Signup.jsx";
-import Profile from "./pages/Profile.jsx";
+import Contact from "./pages/Contact-us.js";
+import Cart from "./pages/ShoppingCart.js";
+import Login from "./pages/Login.js";
+import Signup from "./pages/Signup.js";
+import Profile from "./pages/Profile.js";
 
 import ProductDetails from "./components/ProductDetails.jsx";
 
@@ -19,7 +19,7 @@ import { useDispatch } from "react-redux";
 import { fetchCurrentUser } from "./redux/authSlice.js";
 import { loadUserCart } from "./redux/authSlice.js";
 import SuccessCard from "./pages/SuccessCard.jsx";
-import CancelCard from "./pages/CancelCard.jsx";
+import CancelCard from "./pages/CancelCard.js";
 
 
 
