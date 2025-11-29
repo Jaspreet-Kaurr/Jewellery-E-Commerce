@@ -37,8 +37,8 @@ export const createCheckoutSession = async (req, res) => {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: "http://localhost:5173/payment-success",
-      cancel_url: "http://localhost:5173/payment-cancel",
+      success_url: "https://jewellery-e-commerce-g6o8.vercel.app/payment-success",
+      cancel_url: "https://jewellery-e-commerce-g6o8.vercel.app/payment-cancel",
     });
 
      // sending session id as response
