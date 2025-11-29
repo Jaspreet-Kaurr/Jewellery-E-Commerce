@@ -14,7 +14,7 @@ export const signupUser = createAsyncThunk(
   "auth/signupUser",
   async (formData, { rejectWithValue }) => {
     try {
-      const res = await fetch(`${API_URL}/api/auth/register`, {
+      const res = await fetch(`${API_URL}/api/auth/register1`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
