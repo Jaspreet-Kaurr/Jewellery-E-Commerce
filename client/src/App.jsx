@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home.jsx";
-import Collections from "./pages/Collections.jsx";
-import Gold from "./pages/Gold.jsx";
-import Diamond from "./pages/Diamond.jsx";
+import Home from "./Pages/Home.jsx";
+
+import Collections from "./Pages/Collections.jsx";
+import Gold from "./Pages/Gold.jsx";
+import Diamond from "./Pages/Diamond.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
-import Contact from "./pages/Contact-us.jsx";
-import Cart from "./pages/ShoppingCart.jsx";
-import Login from "./pages/Login.jsx";
-import Signup from "./pages/Signup.jsx";
-import Profile from "./pages/Profile.jsx";
+import Contact from "./Pages/Contact-us.jsx";
+import Cart from "./Pages/ShoppingCart.jsx";
+import Login from "./Pages/Login.jsx";
+import Signup from "./Pages/Signup.jsx";
+import Profile from "./Pages/Profile.jsx";
 
 import ProductDetails from "./components/ProductDetails.jsx";
 
@@ -18,8 +19,8 @@ import ProductDetails from "./components/ProductDetails.jsx";
 import { useDispatch } from "react-redux";
 import { fetchCurrentUser } from "./redux/authSlice.js";
 import { loadUserCart } from "./redux/authSlice.js";
-import SuccessCard from "./pages/SuccessCard.jsx";
-import CancelCard from "./pages/CancelCard.jsx";
+import SuccessCard from "./Pages/SuccessCard.jsx";
+import CancelCard from "./Pages/CancelCard.jsx";
 
 
 
