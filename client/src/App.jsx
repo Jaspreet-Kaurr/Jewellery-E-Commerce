@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home.jsx";
+import { Home } from "./pages/Home.jsx";
 import Collections from "./pages/Collections.jsx";
 import Gold from "./pages/Gold.jsx";
 import Diamond from "./pages/Diamond.jsx";
