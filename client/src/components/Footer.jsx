@@ -1,10 +1,12 @@
 import { Heart, Instagram, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
+
 
 export default function Footer() {
   return (
     <footer className="bg-pink-100 text-pink-900 py-8 px-6 border-t border-pink-200">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
-        
+
         {/* Left Section - Brand */}
         <div className="text-center md:text-left">
           <h2 className="text-2xl font-bold text-pink-700">Jass Jewels</h2>
@@ -35,11 +37,12 @@ export default function Footer() {
         <div className="text-center md:text-right">
           <h3 className="font-semibold text-lg text-pink-700 mb-2">Quick Links</h3>
           <ul className="space-y-1 text-sm">
-            <li><a href="https://jewellery-e-commerce-g6o8.vercel.app/" className="hover:text-pink-600 transition">Home</a></li>
-            <li><a href="https://jewellery-e-commerce-g6o8.vercel.app/diamond" className="hover:text-pink-600 transition">Shop</a></li>
-            <li><a href="https://jewellery-e-commerce-g6o8.vercel.app/collections" className="hover:text-pink-600 transition">Collections</a></li>
-            <li><a href="https://jewellery-e-commerce-g6o8.vercel.app/contact-us" className="hover:text-pink-600 transition">Contact Us</a></li>
+            <li><Link to="/" className="hover:text-pink-600 transition">Home</Link></li>
+            <li><Link to="/diamond" className="hover:text-pink-600 transition">Shop</Link></li>
+            <li><Link to="/collections" className="hover:text-pink-600 transition">Collections</Link></li>
+            <li><Link to="/contact-us" className="hover:text-pink-600 transition">Contact Us</Link></li>
           </ul>
+
         </div>
       </div>
 
