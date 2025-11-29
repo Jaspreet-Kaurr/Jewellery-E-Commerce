@@ -35,10 +35,10 @@ export default function Footer() {
         <div className="text-center md:text-right">
           <h3 className="font-semibold text-lg text-pink-700 mb-2">Quick Links</h3>
           <ul className="space-y-1 text-sm">
-            <li><a href="/" className="hover:text-pink-600 transition">Home</a></li>
-            <li><a href="/diamond" className="hover:text-pink-600 transition">Shop</a></li>
-            <li><a href="/collections" className="hover:text-pink-600 transition">Collections</a></li>
-            <li><a href="/contact-us" className="hover:text-pink-600 transition">Contact Us</a></li>
+            <li><a href="https://jewellery-e-commerce-g6o8.vercel.app/" className="hover:text-pink-600 transition">Home</a></li>
+            <li><a href="https://jewellery-e-commerce-g6o8.vercel.app/diamond" className="hover:text-pink-600 transition">Shop</a></li>
+            <li><a href="https://jewellery-e-commerce-g6o8.vercel.app/collections" className="hover:text-pink-600 transition">Collections</a></li>
+            <li><a href="https://jewellery-e-commerce-g6o8.vercel.app/contact-us" className="hover:text-pink-600 transition">Contact Us</a></li>
           </ul>
         </div>
       </div>
